@@ -3,12 +3,14 @@
 注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
 '''
 
+
 class TreeLinkNode:
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
         self.next = None
+
 
 class Solution:
     def GetNext(self, pNode):
@@ -19,7 +21,7 @@ class Solution:
             pRight = pNode.right
             while pRight.left != None:
                 pRight = pRight.left
-            pNext= pRight
+            pNext = pRight
         elif pNode.next != None:
             pCurrent = pNode
             pParent = pCurrent.next

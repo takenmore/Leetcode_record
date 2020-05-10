@@ -9,6 +9,8 @@
         如果允许原地处理 则应该可以以当作右下角的方式写
 '''
 from typing import List
+
+
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
         dp = [[0] * len(matrix[0]) for _ in range(len(matrix))]
@@ -21,10 +23,14 @@ class Solution:
                     if i == 0 or j == 0:
                         dp[i][j] = 1
                     else:
-                        dp[i][j] = min(dp[i][j-1],dp[i-1][j],dp[i-1][j-1])+1
-                    maxsides = max(dp[i][j],maxsides)
+                        dp[i][j] = min(dp[i][j - 1], dp[i - 1][j],
+                                       dp[i - 1][j - 1]) + 1
+                    maxsides = max(dp[i][j], maxsides)
         ans = maxsides * maxsides
         return ans
 
-s=Solution()
-print(s.maximalSquare([["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]))
+
+s = Solution()
+print(
+    s.maximalSquare([["1", "0", "1", "0", "0"], ["1", "0", "1", "1", "1"],
+                     ["1", "1", "1", "1", "1"], ["1", "0", "0", "1", "0"]]))

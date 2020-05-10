@@ -5,24 +5,27 @@
 '''
     思路 逐位相加 用flag 标记进位 不等长情况时 在一个整数结束后 后续根据进位 处理另外的整数 均结束时 判断进位是否为1 
 '''
+
+
 class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
+
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         flag = 0
         ans = ListNode(0)
         temp = ans
-        while l1!=None or l2 != None:
-            x = l1.val if l1 else 0  #不等长情况 
+        while l1 != None or l2 != None:
+            x = l1.val if l1 else 0  #不等长情况
             y = l2.val if l2 else 0
             if x + y + flag >= 10:
-                temp.next = ListNode((x+y+flag)%10)
+                temp.next = ListNode((x + y + flag) % 10)
                 flag = 1
             else:
-                temp.next = ListNode(x+y+flag)
+                temp.next = ListNode(x + y + flag)
                 flag = 0
             if l1:
                 l1 = l1.next
@@ -30,5 +33,5 @@ class Solution:
                 l2 = l2.next
             temp = temp.next
         if flag != 0:
-            temp.next =ListNode(1)
+            temp.next = ListNode(1)
         return ans.next

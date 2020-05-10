@@ -9,29 +9,35 @@
 
 '''
 
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
 
+
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        def dfs(self,r,p,q):
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode',
+                             q: 'TreeNode') -> 'TreeNode':
+        def dfs(self, r, p, q):
             if r is None:
                 return False
-            isleft = dfs(self,r.left,p,q)
-            isright = dfs(self,r.right,p,q)
+            isleft = dfs(self, r.left, p, q)
+            isright = dfs(self, r.right, p, q)
             if isright and isleft:
-                ans.val = r.val   #注意不能直接对象赋值。另一种方式是 self.ans = r 可以确保ans能带出去
-            elif (r.val==p.val or r.val == q.val) and (isleft or isright):
-                ans.val = r.val   #注意不能直接对象赋值。另一种方式是 self.ans = r 可以确保ans能带出去
+                ans.val = r.val  #注意不能直接对象赋值。另一种方式是 self.ans = r 可以确保ans能带出去
+            elif (r.val == p.val or r.val == q.val) and (isleft or isright):
+                ans.val = r.val  #注意不能直接对象赋值。另一种方式是 self.ans = r 可以确保ans能带出去
             else:
                 return isleft or isright or (r.val == p.val or r.val == q.val)
+
         ans = TreeNode(0)
-        dfs(self,root,p,q)
+        dfs(self, root, p, q)
         return ans
-s= Solution()
+
+
+s = Solution()
 root = TreeNode(3)
 l1 = TreeNode(5)
 l2 = TreeNode(1)
@@ -49,4 +55,4 @@ l2.left = l5
 l2.right = l6
 l4.left = l7
 l4.right = l8
-print(s.lowestCommonAncestor(root,l3,l4).val)
+print(s.lowestCommonAncestor(root, l3, l4).val)

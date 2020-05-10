@@ -12,20 +12,23 @@
         直到遍历完字符串
 
 '''
+
+
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         windows = set()
         winlen = 0
         pi = -1
-        for i,item in enumerate(s):
+        for i, item in enumerate(s):
             if i != 0:
-                windows.remove(s[i-1])
-            while pi< len(s)-1 and s[pi+1] not in windows:
-                windows.add(s[pi+1])
+                windows.remove(s[i - 1])
+            while pi < len(s) - 1 and s[pi + 1] not in windows:
+                windows.add(s[pi + 1])
                 pi += 1
-            if len(windows)>winlen:
+            if len(windows) > winlen:
                 winlen = len(windows)
         return winlen
+
 
 s = Solution()
 print(s.lengthOfLongestSubstring("abcdabcbb"))

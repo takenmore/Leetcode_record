@@ -5,6 +5,8 @@
     python 。。。懂？
     书中思路 双指针 后往前
 '''
+
+
 class Solution:
     def replaceSpace(self, s: str) -> str:
         c = []
@@ -14,9 +16,10 @@ class Solution:
             else:
                 c.append(i)
         return "".join(c)
+
     # 参考解法 双指针
     def replaceSpace3(self, s):
-        if not isinstance(s,str) or len(s) <= 0 or s == None:
+        if not isinstance(s, str) or len(s) <= 0 or s == None:
             return ""
         spaceNum = 0
         for i in s:
@@ -27,7 +30,7 @@ class Solution:
         indexOfOriginal, indexOfNew = len(s) - 1, newStrLen - 1
         while indexOfNew >= 0 and indexOfNew >= indexOfOriginal:
             if s[indexOfOriginal] == ' ':
-                newStr[indexOfNew-2:indexOfNew+1] = ['%', '2', '0']
+                newStr[indexOfNew - 2:indexOfNew + 1] = ['%', '2', '0']
                 indexOfNew -= 3
                 indexOfOriginal -= 1
             else:
