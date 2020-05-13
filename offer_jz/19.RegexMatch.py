@@ -22,11 +22,11 @@ class Solution:
         if p_i >= len(p):
             return s_i==len(s)
         if p_i < len(p)-1 and p[p_i+1] == '*':
-            if s_i<=len(s)-1 and (s[s_i]==p[p_i] or p[p_i]=='.'):  #越界判断在先 越界后 后续逻辑不执行
+            if s_i<=len(s)-1 and (s[s_i]==p[p_i] or p[p_i]=='.'):  #越界判断在先 越界后 后续逻辑不执行 短路特性
                 return self.matchcore(s,p,s_i+1,p_i) or self.matchcore(s,p,s_i,p_i+2)
                #return self.matchcore(s,p,s_i+1,p_i+2) or \
                # self.matchcore(s,p,s_i+1,p_i) or \
-               # self.matchcore(s,p,s_i,p_i+2)f   书上的翻译 但是在第一个条件在下面的测试用例 超时
+               # self.matchcore(s,p,s_i,p_i+2)f   书上的翻译 但是在第一个条件在下面的测试用例 超时  短路特性
             else:
                 return self.matchcore(s,p,s_i,p_i+2)   
         else:
