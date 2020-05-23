@@ -12,8 +12,6 @@
         直到遍历完字符串
 
 '''
-
-
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         windows = set()
