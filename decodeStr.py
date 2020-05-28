@@ -12,7 +12,7 @@
 
 class Solution:
     def decodeString(self, s: str) -> str:
-        Temp = []
+        stack = []
         times = res = ''
         str_t = []
         for i in range(len(s)):
@@ -20,23 +20,23 @@ class Solution:
                 times += s[i]
                 continue
             elif s[i] == '[':
-                Temp.append('[')
-                Temp.append(times)
+                stack.append('[')
+                stack.append(times)
                 times = ''
                 continue
             elif s[i] == ']':
-                while not Temp[-1].isnumeric():
-                    str_t.append(Temp.pop())
+                while not stack[-1].isnumeric():
+                    str_t.append(stack.pop())
                 temp_str = ''
                 while str_t:
                     temp_str += str_t.pop()
-                temp_str = temp_str * int(Temp.pop())
-                if Temp.pop() == '[':
-                    Temp.append(temp_str)
+                temp_str = temp_str * int(stack.pop())
+                if stack.pop() == '[':
+                    stack.append(temp_str)
                 str_t = []
                 continue
-            Temp.append(s[i])
-        res = res.join(Temp)
+            stack.append(s[i])
+        res = res.join(stack)
         return res
 
 S = Solution()
