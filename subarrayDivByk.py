@@ -10,6 +10,8 @@
     只 - 不 +
 '''
 from typing import List
+
+
 class Solution:
     def subarraysDivByK(self, A: List[int], K: int) -> int:
         d = {}
@@ -18,13 +20,14 @@ class Solution:
             sumNum += A[i]
             if sumNum % K == 0:
                 count += 1
-            if sumNum%K in d:
-                count += d.get(sumNum%K, 0)
-            if sumNum%K in d:
-                d[sumNum%K] += 1
+            if sumNum % K in d:
+                count += d.get(sumNum % K, 0)
+            if sumNum % K in d:
+                d[sumNum % K] += 1
             else:
-                d[sumNum%K] = 1
+                d[sumNum % K] = 1
         return count
 
+
 S = Solution()
-print(S.subarraysDivByK([7,9,5,6,7,2], 7))
+print(S.subarraysDivByK([7, 9, 5, 6, 7, 2], 7))

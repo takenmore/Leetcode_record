@@ -14,15 +14,18 @@
 '''
 from typing import List
 from collections import deque
+
+
 class Solution:
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+    def findOrder(self, numCourses: int,
+                  prerequisites: List[List[int]]) -> List[int]:
         degree = [0 for i in range(numCourses)]
         res = []
         for i in range(len(prerequisites)):
             degree[prerequisites[i][0]] += 1
         out = deque()
         for i in range(numCourses):
-            if degree[i]==0:
+            if degree[i] == 0:
                 out.append(i)
         while out:
             curr = out.pop()
@@ -35,5 +38,5 @@ class Solution:
         return res if len(res) == numCourses else []
 
 
-s=Solution()
-print(s.findOrder(3,[[1,0],[1,2],[0,1]]))
+s = Solution()
+print(s.findOrder(3, [[1, 0], [1, 2], [0, 1]]))
