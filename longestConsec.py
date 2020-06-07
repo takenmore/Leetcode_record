@@ -1,5 +1,5 @@
 '''
-@description: 
+@description:
     给定一个未排序的整数数组，找出最长连续序列的长度。
     要求算法的时间复杂度为 O(n)。
 @param {type} nums 未排序数组
