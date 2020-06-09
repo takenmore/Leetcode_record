@@ -38,7 +38,7 @@ class Solution:
             if equation[1] == '=':
                 var = id2var[var2id[equation[3]]]
                 des = id2var[var2id[equation[0]]]
-                for i in range(Id):
+                for i in range(Id):    # 用find 可能更符合并查集。 这里是union的步骤
                     if id2var[i] == var:
                         id2var[i] = des
         for equation in equations:
