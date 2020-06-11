@@ -4,7 +4,9 @@
 @param {type} 数组
 @return: 最大子数组乘积
 '''
-
+'''
+    基本DP + 滚动数组
+'''
 from typing import List
 
 
