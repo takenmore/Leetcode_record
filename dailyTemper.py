@@ -12,6 +12,7 @@ from typing import List
     注意 栈中应存列表的下标 而不是元素！
 '''
 
+
 class Solution:
     def dailyTemperatures(self, T: List[int]) -> List[int]:
         stack = []
@@ -27,5 +28,4 @@ class Solution:
 
 
 S = Solution()
-print(S.dailyTemperatures([73,74,75,71,69,72,76,73]))
-
+print(S.dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]))
