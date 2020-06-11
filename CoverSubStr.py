@@ -10,12 +10,15 @@
     应对坑点： 采用两个字典分别记录 T的各字符统计计数 以及 判断的子串的各字符统计计数
 '''
 from collections import defaultdict
+
+
 class Solution:
-    def check(self,s,t):
-        for k,v in t.items():
+    def check(self, s, t):
+        for k, v in t.items():
             if s[k] < v:
                 return False
         return True
+
     def minWindow(self, s: str, t: str) -> str:
         head = 0
         tail = -1
@@ -24,15 +27,15 @@ class Solution:
         t_d = {}
         for i in range(len(t)):
             if t[i] in t_d:
-                t_d[t[i]]+=1
+                t_d[t[i]] += 1
             else:
                 t_d[t[i]] = 1
         s_d = defaultdict(int)
         while tail < len(s):
-            if self.check(s_d,t_d):
+            if self.check(s_d, t_d):
                 if (tail - head + 1) <= MinLength:
-                    MinLength = tail-head +1
-                    ans = s[head:tail+1]
+                    MinLength = tail - head + 1
+                    ans = s[head:tail + 1]
                 s_d[s[head]] -= 1
                 head += 1
             else:
@@ -41,5 +44,6 @@ class Solution:
                     s_d[s[tail]] += 1
         return ans
 
+
 s = Solution()
-print(s.minWindow("acbbaca","aba"))
+print(s.minWindow("acbbaca", "aba"))
