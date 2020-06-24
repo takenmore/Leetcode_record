@@ -9,12 +9,15 @@
     汉明距离：对两个字符串进行异或运算后 并统计结果中 1的个数 这个数就是汉明距离
 '''
 from typing import List
+
+
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         a = nums[0]
-        for i in range(1,len(nums)):
-            a = a^nums[i]
+        for i in range(1, len(nums)):
+            a = a ^ nums[i]
         return a
 
+
 s = Solution()
-print(s.singleNumber([5,1,1,2,2]))
+print(s.singleNumber([5, 1, 1, 2, 2]))
