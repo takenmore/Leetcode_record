@@ -4,6 +4,8 @@
     存在多个重复的可能性 求任意一个
 '''
 from typing import List
+
+
 class Solution:
     def findRepeatNumber(self, nums: List[int]) -> int:
         if nums:
@@ -11,13 +13,15 @@ class Solution:
                 while nums[i] != i:
                     m = nums[i]
                     if (m != nums[m]):
-                        nums[i],nums[m]=nums[m],nums[i]
+                        nums[i], nums[m] = nums[m], nums[i]
                     else:
                         return m
         return -1
+
     '''
         找出所有的重复数字
     '''
+
     def duplicate2(self, numbers):
         if numbers == None or len(numbers) <= 0:
             return False
@@ -35,6 +39,7 @@ class Solution:
                     numbers[i], numbers[index] = numbers[index], numbers[i]
         return repeatedNums
 
-s= Solution()
-l = [2,3,1,0,2,5,3]
+
+s = Solution()
+l = [2, 3, 1, 0, 2, 5, 3]
 print(s.duplicate2(l))

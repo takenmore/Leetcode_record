@@ -1,3 +1,6 @@
+import sys
+sys.path.append('.')
+sys.path.append('..')
 import util
 
 
@@ -5,9 +8,12 @@ class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
+
+
 '''
     输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。
 '''
+
 
 class Solution:
     def MergeSortedList(self, phead1, phead2):
