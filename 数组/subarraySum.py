@@ -17,6 +17,8 @@
 '''
 
 from typing import List
+
+
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         d = {}
@@ -26,9 +28,9 @@ class Solution:
         for i in range(len(nums)):
             sumNum += nums[i]
             if sumNum == k:
-                count +=1
-            if sumNum-k in d:
-                count += d[sumNum-k]
+                count += 1
+            if sumNum - k in d:
+                count += d[sumNum - k]
             if sumNum in d:
                 d[sumNum] += 1
             else:
@@ -37,4 +39,4 @@ class Solution:
 
 
 s = Solution()
-print(s.subarraySum([28,54,7,-70,22,65,-6],100))
+print(s.subarraySum([28, 54, 7, -70, 22, 65, -6], 100))
