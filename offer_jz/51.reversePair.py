@@ -4,7 +4,10 @@
 '''
 
 from typing import List
-
+'''
+    分治思想
+    归并排序 每次归并的时候出现逆序时增加计数器
+'''
 
 class Solution:
     def reversePair(self, nums: List[int]) -> int:
