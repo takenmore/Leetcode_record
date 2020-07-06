@@ -21,7 +21,7 @@ class Solution:
             验证一棵二叉树是否是平衡二叉树
         '''
         '''
-            后序遍历节省多余判断。
+            后序遍历节省多余判断。aa
         '''
         def dfs(root):
             if not root:return 0
