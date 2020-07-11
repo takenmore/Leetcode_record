@@ -7,6 +7,7 @@ from typing import List
 '''
     分治思想
     归并排序 每次归并的时候出现逆序时增加计数器
+    存在两种 计算方式
 '''
 
 class Solution:
@@ -42,9 +43,11 @@ class Solution:
             elif j > right:
                 nums[k] = temp[i]
                 i += 1
+                #count += right - mid
             elif temp[i] <= temp[j]:
                 nums[k] = temp[i]
                 i += 1
+                #count += j - mid -1
             else:
                 nums[k] = temp[j]
                 j += 1
