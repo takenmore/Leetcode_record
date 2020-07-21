@@ -3,7 +3,7 @@
 '''
 
 '''
-    二维dp
+    二维dp 滚动数组优化。
     dp[i][j] = (dp[i-1][j] and s1[i-1]==s3[i+j-1]) or (dp[i][j-1] and s2[j-1]==s3[i+j-1])
 '''
 class Solution:
